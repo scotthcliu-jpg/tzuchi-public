@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合約風險分析 — 東大靜思堂工藝品展覽</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.7; color: #1a1a1a; background: #f6f8fa; }
+  a { color: #0969da; }
+
+  .page-header { background: #24292f; color: #f6f8fa; padding: 2rem 2.5rem; }
+  .page-header h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .page-header .meta { font-size: 13px; color: #8b949e; }
+  .page-header .meta span { margin-right: 1.5rem; }
+
+  .law-box { background: #fff8c5; border: 1px solid #d4a72c; border-left: 4px solid #d4a72c; border-radius: 6px; padding: 1rem 1.25rem; margin: 1.5rem 2.5rem; }
+  .law-box h3 { font-size: 13px; font-weight: 600; color: #7d4e00; margin-bottom: 0.5rem; letter-spacing: 0.02em; text-transform: uppercase; }
+  .law-box p { font-size: 13.5px; color: #4b3800; line-height: 1.6; margin-bottom: 0.4rem; }
+  .law-box p:last-child { margin-bottom: 0; }
+
+  .section { background: #ffffff; border: 1px solid #d0d7de; border-radius: 8px; margin: 1.5rem 2.5rem; overflow: hidden; }
+  .section-header { padding: 1rem 1.25rem; border-bottom: 1px solid #d0d7de; display: flex; align-items: center; gap: 12px; }
+  .contract-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.03em; }
+  .tag-engineering { background: #dbeafe; color: #1e40af; }
+  .tag-artifact { background: #ede9fe; color: #5b21b6; }
+  .section-header h2 { font-size: 15px; font-weight: 600; color: #24292f; }
+  .section-header .party { font-size: 12px; color: #57606a; margin-left: auto; }
+
+  .risk-list { padding: 0; }
+  .risk-item { padding: 1rem 1.25rem; border-bottom: 1px solid #f0f0f0; display: grid; grid-template-columns: 80px 1fr; gap: 1rem; align-items: start; }
+  .risk-item:last-child { border-bottom: none; }
+  .risk-badge { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.03em; white-space: nowrap; }
+  .badge-critical { background: #ffd7d7; color: #a4262c; }
+  .badge-high { background: #fde8cb; color: #8a4100; }
+  .badge-medium { background: #fff8c5; color: #7d4e00; }
+  .badge-low { background: #d1f0d1; color: #116329; }
+
+  .risk-content h4 { font-size: 14px; font-weight: 600; color: #24292f; margin-bottom: 4px; }
+  .risk-content p { font-size: 13.5px; color: #424649; line-height: 1.6; margin-bottom: 6px; }
+  .risk-content p:last-child { margin-bottom: 0; }
+  .law-cite { display: inline-block; font-size: 11.5px; font-weight: 600; background: #f6f0ff; color: #6e40c9; border: 1px solid #d8b4fe; border-radius: 4px; padding: 1px 7px; margin-right: 6px; margin-bottom: 4px; }
+  .fix-label { font-size: 11.5px; font-weight: 600; color: #0969da; }
+  .fix-text { font-size: 13px; color: #0969da; }
+
+  .summary { margin: 1.5rem 2.5rem; }
+  .summary h2 { font-size: 16px; font-weight: 600; color: #24292f; margin-bottom: 1rem; }
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .summary-card { background: #fff; border: 1px solid #d0d7de; border-radius: 8px; padding: 1rem 1.25rem; }
+  .summary-card h3 { font-size: 13px; font-weight: 600; color: #57606a; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .count-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-size: 13.5px; }
+  .count-row:last-child { border-bottom: none; }
+
+  .verdict { margin: 1.5rem 2.5rem 2.5rem; background: #fff; border: 1px solid #d0d7de; border-left: 4px solid #cf222e; border-radius: 8px; padding: 1rem 1.25rem; }
+  .verdict h2 { font-size: 14px; font-weight: 600; color: #a4262c; margin-bottom: 0.75rem; }
+  .verdict ul { padding-left: 1.25rem; }
+  .verdict li { font-size: 13.5px; color: #424649; line-height: 1.7; }
+
+  .footer { text-align: center; padding: 1.5rem; font-size: 12px; color: #8b949e; border-top: 1px solid #d0d7de; background: #fff; margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>合約風險分析 — 東大靜思堂工藝品展覽</h1>
+  <div class="meta">
+    <span>建立：中華民國 115 年 6 月 17 日</span>
+    <span>副執行長 劉效成</span>
+    <span>機密文件，不對外</span>
+  </div>
+</div>
+
+<div class="law-box">
+  <h3>財團法人法 關鍵條文依據</h3>
+  <p><strong>第 18 條</strong>：財團法人應以捐助財產孳息及設立登記後之各項所得，辦理符合設立目的及捐助章程所定之業務。</p>
+  <p><strong>第 30 條</strong>：財團法人管理運作方式與設立目的不符，主管機關得予糾正並限期改善，<strong>最重得廢止財團法人之設立許可</strong>。</p>
+  <p><strong>不動產使用</strong>：靜思堂屬社會福利設施，若作商業展售用途，違反都市計劃法與建築法，最重得勒令停止使用，並影響本會免稅資格。</p>
+</div>
+
+<!-- 合約一：協力佈展工程合約書 -->
+<div class="section">
+  <div class="section-header">
+    <span class="contract-tag tag-engineering">合約一</span>
+    <h2>協力佈展工程合約書</h2>
+    <span class="party">甲方：財團法人佛教慈濟功德會 ／ 乙方：森磊觀有限公司</span>
+  </div>
+  <div class="risk-list">
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>代理條款過寬——乙方所有代理行為法律效果直接歸屬甲方（§1-2）</h4>
+        <p>合約明定：乙方於授權範圍內之代理行為，其法律效果直接歸屬於甲方。換言之，森磊觀以慈濟名義與任何協力廠商（裝修、電力、多媒體等）簽約、確認施作細節，慈濟均需概括承擔一切法律責任，包含費用追加、施工瑕疵、工程糾紛。</p>
+        <span class="law-cite">財團法人法第18條</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>限縮代理效力為「甲方事先書面核准之廠商名單及金額範圍內方生效力」，或改由慈濟直接發包，乙方僅提供諮詢。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>第二層保全費用由甲方（慈濟）支付——違反內部共識（§6-1-2）</h4>
+        <p>合約明定：第二層保全由「甲方直接與第三方保全公司簽約並支付費用」。此條款與慈濟內部共識（保全費用及作業由森磊觀負責）直接衝突。以捐款支應商業展覽之保全費用，恐違反財團法人法第18條。</p>
+        <span class="law-cite">財團法人法第18條</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>改為乙方自行聘用並支付保全費用。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>工程 5 月 7 日已開工，合約 6 月 9 日才草擬——先施工後合約（§6）</h4>
+        <p>合約載明開工日為 115 年 5 月 7 日，但合約草稿至 6 月 9 日方才提出，雙方均尚未簽署。以捐款人財產進行未經核准之工程，明顯違反財團法人法第18條關於財產管理之規定，亦有違建或未取得室內裝修許可之行政法律責任。</p>
+        <span class="law-cite">財團法人法第18條</span><span class="law-cite">都市計劃法</span><span class="law-cite">建築法</span>
+        <p class="fix-text"><span class="fix-label">建議處理：</span>法務確認追溯效力可行性；已施工費用認列方式需另行書面確認；室內裝修許可須加速辦理。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-high">高風險</span>
+      <div class="risk-content">
+        <h4>工程總價空白，追加條款寬鬆——捐款支用上限不明（§3、§7）</h4>
+        <p>合約總價欄位空白，且列有六種可追加情形（設計變更、甲方提供資料延遲、建築師費等），幾乎囊括所有實際情況。以捐款支付額度不確定之商業展覽工程費，與財團法人法第18條財產使用規範相牴觸。</p>
+        <span class="law-cite">財團法人法第18條</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>簽約前填入總價上限；追加款須事前書面核准；明確限定慈濟支持項目範圍。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-high">高風險</span>
+      <div class="risk-content">
+        <h4>甲方須提供辦公空間予乙方常駐人員（§5-5）</h4>
+        <p>合約要求甲方於工程期間及展覽期間，提供森磊觀人員常駐辦公、設備暫置、會議協調所需空間。靜思堂為捐款建設之財產，長期作為商業公司之辦公場所，違反不動產用途限制，影響免稅資格。</p>
+        <span class="law-cite">財團法人法第18條</span><span class="law-cite">稅捐稽徵法</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>刪除此條；或限定「工程施工期間短暫借用，展覽期間不適用」。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-high">高風險</span>
+      <div class="risk-content">
+        <h4>合約甲方法人主體有誤——功德會 vs 慈善基金會</h4>
+        <p>兩份合約甲方均填「財團法人佛教慈濟功德會」，但東大靜思堂場地由慈濟慈善事業基金會管轄。法人主體錯誤將導致合約效力疑義，並可能影響場地借用之合法性。</p>
+        <span class="law-cite">財團法人法第5條</span>
+        <p class="fix-text"><span class="fix-label">待確認：</span>法務確認東大靜思堂由哪個法人管轄，以正確法人為合約主體。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-medium">中風險</span>
+      <div class="risk-content">
+        <h4>慈濟義工被要求承擔展場導覽（§5-1, §5-3）</h4>
+        <p>合約要求甲方安排義工負責展場導覽、接待、設備開關等工作，並需提供「展場開放期間之現場導覽人員」。此與內部共識「慈濟志工不做導覽」相抵觸，且使慈濟義工實質成為商業展覽之服務人員。</p>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>刪除「導覽人員」要求，義工職責限於「現場秩序維持及巡場」。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-medium">中風險</span>
+      <div class="risk-content">
+        <h4>甲方須提供慈濟素材供多媒體製作——形同為商業展覽背書（§4）</h4>
+        <p>合約要求甲方提供「上人開示影音、歷史影像、人物照片」等素材，由乙方用於多媒體展覽製作。若展覽具商業性質，使用上人影音將使慈濟形象與商業展品掛鉤，損及本會聲譽及信任。</p>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>素材提供改為甲方審核核准後方可使用，並明定僅限非商業用途。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 合約二：文物借展合約書 -->
+<div class="section">
+  <div class="section-header">
+    <span class="contract-tag tag-artifact">合約二</span>
+    <h2>文物借展合約書</h2>
+    <span class="party">甲方：財團法人佛教慈濟功德會 ／ 乙方：陳學明</span>
+  </div>
+  <div class="risk-list">
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>慈濟列為「主辦方」——承擔商業展覽主辦責任，違反章程目的（封面、§1）</h4>
+        <p>合約封面明定甲方為「主辦方」，並於第一條載明慈濟「共同舉辦」本展覽。法務分析指出：若本案事後被認定係以展售為目的，慈濟將被視為從事與設立目的不符之業務，直接違反財團法人法第18條及第30條，最重得廢止設立許可。</p>
+        <span class="law-cite">財團法人法第18條</span><span class="law-cite">財團法人法第30條</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>慈濟角色改為「場地出借方」，乙方為展覽主辦及組織方，本案不使用此份合約。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>展品定性為「文物」——隱含真偽背書，恐觸犯文化資產相關法規（§3）</h4>
+        <p>合約通篇使用「文物」、「藏家」等用語，並列明「靈山勝會、石獅、十八羅漢、觀音系列」等展品。若展品涉及偽造文物，慈濟以主辦方名義提供場地，將使本會承擔潛在的共同責任。法務意見亦指出陳居士商家性質明顯，文物真偽存疑。</p>
+        <span class="law-cite">財團法人法第18條</span>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>展品一律以「工藝品」定性，刪除年代標示，合約中不使用「文物」、「藏品」等字眼。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-critical">極高風險</span>
+      <div class="risk-content">
+        <h4>無展覽期間上限，無禁止販售條款（§2、全文）</h4>
+        <p>合約第二條日期欄位空白，未限定展覽期間。全文亦無任何禁止販售之明文規定。法務分析指出：若允許靜思堂以「借展」方式實質進行商業展售，將違反都市計劃法、建築法，影響本會免稅資格，稅捐稽徵機關可能處以罰鍰並要求補稅。</p>
+        <span class="law-cite">財團法人法第18條</span><span class="law-cite">財團法人法第30條</span><span class="law-cite">都市計劃法</span><span class="law-cite">稅捐稽徵法</span>
+        <p class="fix-text"><span class="fix-label">必須加入：</span>（1）明定展覽期間上限三個月；（2）加入禁止販售條款並設違約金；（3）展覽結束後一年內出售展品視為藉展售，應賠償售價 100% 違約金（法務建議條文）。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-high">高風險</span>
+      <div class="risk-content">
+        <h4>不投保，損害賠償上限 NT$0.5——陳居士稱藏品總值逾 5 億（§7）</h4>
+        <p>合約第七條確認不投保，並將慈濟之賠償責任上限訂為「新台幣五角」。此條款對慈濟有利，但陳學明曾宣稱白奇楠觀音價值 5.6 億元。若展覽期間發生損壞，極可能引發法律訴訟，即便最終不須賠償，訴訟過程亦損及本會聲譽。</p>
+        <p class="fix-text"><span class="fix-label">建議補充：</span>要求乙方自行投保展覽保險（費用自負），並確認陳學明本人親簽確認「不投保」及 NT$0.5 賠償上限之條款。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-high">高風險</span>
+      <div class="risk-content">
+        <h4>甲方拍攝文宣並標示「文物收藏提供：陳學明」——為商業藏家公開背書（§9-4）</h4>
+        <p>合約允許並要求甲方在展覽文宣中標示「文物收藏提供：陳學明先生」，並授權甲方廣泛使用文物圖像。此舉實質使慈濟的公信力為商業藏家背書，有損本會「誠正信實」之六十年金字招牌。</p>
+        <span class="law-cite">財團法人法第18條</span>
+        <p class="fix-text"><span class="fix-label">建議刪除：</span>文宣不得標示收藏者姓名；展品以「藝術品」說明，不附收藏家資訊。</p>
+      </div>
+    </div>
+
+    <div class="risk-item">
+      <span class="risk-badge badge-medium">中風險</span>
+      <div class="risk-content">
+        <h4>甲方得廣泛使用文物圖像於宣傳——日後難以撤回（§9）</h4>
+        <p>合約授權甲方將文物圖像用於海報、網站、社群媒體、教育教材等，且「不因借展而移轉智慧財產權」之說明模糊。一旦展覽涉及爭議（如文物真偽），已發布之宣傳資料將難以撤回且留存於網路。</p>
+        <p class="fix-text"><span class="fix-label">建議修改：</span>限制圖像使用範圍；加入「若展覽提前終止，甲方有權下架所有宣傳資料，乙方不得異議」條款。</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 風險摘要 -->
+<div class="summary">
+  <h2>風險數量統計</h2>
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h3>協力佈展工程合約書</h3>
+      <div class="count-row"><span>極高風險（立即阻止）</span><span class="risk-badge badge-critical">3 項</span></div>
+      <div class="count-row"><span>高風險（必須修改）</span><span class="risk-badge badge-high">3 項</span></div>
+      <div class="count-row"><span>中風險（建議修改）</span><span class="risk-badge badge-medium">2 項</span></div>
+      <div class="count-row" style="margin-top:8px;font-weight:600;">結論：<span style="color:#a4262c;">不得以現有版本簽署</span></div>
+    </div>
+    <div class="summary-card">
+      <h3>文物借展合約書</h3>
+      <div class="count-row"><span>極高風險（立即阻止）</span><span class="risk-badge badge-critical">3 項</span></div>
+      <div class="count-row"><span>高風險（必須修改）</span><span class="risk-badge badge-high">2 項</span></div>
+      <div class="count-row"><span>中風險（建議修改）</span><span class="risk-badge badge-medium">1 項</span></div>
+      <div class="count-row" style="margin-top:8px;font-weight:600;">結論：<span style="color:#a4262c;">不得以現有版本簽署</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="verdict">
+  <h2>總結：兩份合約均不應簽署，慈濟應自行起草場地借用合約</h2>
+  <ul>
+    <li>兩份合約均以「財團法人佛教慈濟功德會」為主辦方，違反財團法人法第 18、30 條，並使本會承擔商業展覽之一切法律責任。</li>
+    <li>展品「文物」定性、無禁止販售條款、慈濟名義廣泛宣傳，三者合計極可能被主管機關認定為商業展售，最重可廢止本會設立許可、勒令靜思堂停止使用並影響免稅資格。</li>
+    <li>建議：由慈濟法務依「場地借用合約」架構起草新合約；慈濟角色定位為場地出借方，非主辦方；展品以「工藝品」定性；所有商業風險由森磊觀承擔。</li>
+    <li>在新合約雙方簽署前，所有工程暫停推進，已施工費用認列方式需另行書面確認。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  慈濟東大靜思堂工藝品展覽 — 內部法律風險分析 ／ 115.06.17 ／ 機密，不對外
+</div>
+
+</body>
+</html>
