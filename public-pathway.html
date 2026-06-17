@@ -320,13 +320,9 @@
     margin-top: 4px;
   }
 
-  /* ── 返回儀表板 ── */
-  .back-nav {
-    background: #003F7D; padding: 8px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 8px;
-  }
+  /* ── 返回儀表板（hero 右上角浮動按鈕）── */
   .back-btn {
+    position: absolute; top: 20px; right: 28px; z-index: 10;
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
     color: #fff; border-radius: 20px; padding: 4px 14px;
@@ -334,7 +330,6 @@
     transition: background .2s;
   }
   .back-btn:hover { background: rgba(255,255,255,.28); }
-  .back-nav-label { font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: 1px; }
 
   /* ── 頁尾 ── */
   .footer {
@@ -351,10 +346,6 @@
 </style>
 </head>
 <body>
-<div class="back-nav">
-  <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
-  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 公眾溝通版</span>
-</div>
 <div class="card">
 
   <!-- ╔═══ HERO ═══╗ -->
@@ -362,6 +353,7 @@
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
     <div class="hero-deco hero-deco-3"></div>
+    <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
 
     <div class="hero-tag">CLIMATE ACTION · 氣候行動</div>
     <h1 class="hero-title">
