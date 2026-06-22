@@ -275,6 +275,22 @@
     line-height: 1.6;
   }
 
+  /* ── 全面執行後展望 ── */
+  .outlook-section { padding: 40px 56px; background: var(--light); }
+  .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+  .outlook-card { border-radius: 14px; padding: 22px 24px; background: var(--white); border: 1.5px solid var(--sky); }
+  .outlook-card.done { border-color: #A7D7B8; background: var(--mint); }
+  .outlook-year { font-size: 13px; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+  .outlook-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed rgba(0,63,125,.12); font-size: 12.5px; color: var(--gray); }
+  .outlook-row:last-of-type { border-bottom: none; }
+  .outlook-row .v { font-weight: 800; font-size: 15px; color: #1A202C; }
+  .outlook-result { margin-top: 14px; padding: 14px; border-radius: 10px; text-align: center; }
+  .outlook-card.done .outlook-result { background: rgba(255,255,255,.7); }
+  .outlook-result .big { font-size: 26px; font-weight: 900; color: var(--green); }
+  .outlook-result .sub { font-size: 11px; color: var(--gray); margin-top: 4px; }
+  .outlook-card .outlook-badge { display:inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
+  .outlook-card.conservative .outlook-badge { background:#FEF3C7; color:#92400E; }
+
   /* ── 承諾區塊 ── */
   .promise-section {
     background: linear-gradient(135deg, #002D5E, #003F7D);
@@ -559,6 +575,42 @@
 
     </div>
   </div><!-- /.actions-section -->
+
+  <!-- ╔═══ 全面執行後展望 ═══╗ -->
+  <div class="outlook-section">
+    <div class="section-label">FUTURE OUTLOOK · 全面執行後展望</div>
+    <div class="section-title">若所有計畫如期完成，我們能達成什麼？</div>
+
+    <div class="outlook-grid">
+      <!-- 2030 -->
+      <div class="outlook-card done">
+        <div class="outlook-year">🎯 2030 年 SBTi 科學目標</div>
+        <div class="outlook-row"><span>科學目標值</span><span class="v">6,863 噸</span></div>
+        <div class="outlook-row"><span>全計畫執行後預估</span><span class="v">≈ 6,031 噸</span></div>
+        <div class="outlook-result">
+          <div class="big">提前 3 年達標 🎉</div>
+          <div class="sub">超額完成 832 公噸 CO₂e，2027 年即可達成</div>
+        </div>
+      </div>
+
+      <!-- 2040 -->
+      <div class="outlook-card conservative">
+        <div class="outlook-year">🌏 2040 年 SBTi 科學目標</div>
+        <div class="outlook-row"><span>科學目標值</span><span class="v">3,009 噸</span></div>
+        <div class="outlook-row"><span>全計畫執行後預估</span><span class="v">≈ 1,246～4,840 噸</span></div>
+        <div class="outlook-result">
+          <div class="big" style="color:#92400E;">努力中，有信心達成</div>
+          <div class="sub">冰水主機全面汰換的節電效益若如期實現，可超額達標並提前；目前仍持續驗證中</div>
+        </div>
+        <span class="outlook-badge">📋 待全面驗證</span>
+      </div>
+    </div>
+
+    <p style="margin-top:16px; font-size:11px; color:var(--gray); line-height:1.8;">
+      ※ 2040 目標換算：基準年 9,175 噸 ×（1 − 4.2%/年 × 16年）= 3,009 噸（與 2030 目標同一 SBTi 1.5°C 公式）。
+      範圍值反映冰水主機汰換節電效益的驗證進度——下限為樂觀情境（節電效益全數兌現），上限為保守情境（僅計入冷媒逸散減量）。
+    </p>
+  </div><!-- /.outlook-section -->
 
   <!-- ╔═══ 承諾 ═══╗ -->
   <div class="promise-section">
