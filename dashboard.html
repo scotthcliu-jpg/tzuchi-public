@@ -78,9 +78,47 @@
   .leg { display: flex; align-items: center; gap: 6px; }
   .leg-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
 
+  /* ─── TABS ─── */
+  .tabnav {
+    display: flex; gap: 6px; padding: 14px 32px 0; background: #fff;
+    border-bottom: 1px solid var(--gray200); flex-wrap: wrap;
+  }
+  .tab-btn {
+    border: none; background: transparent; cursor: pointer;
+    padding: 12px 18px; font-size: 13px; font-weight: 700; color: var(--gray);
+    border-bottom: 3px solid transparent; font-family: inherit;
+  }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .tab-btn:hover:not(.active) { color: var(--blue2); }
+  .tabpanel { display: none; }
+  .tabpanel.active { display: block; }
+
   /* ─── MAIN LAYOUT ─── */
   .main { padding: 24px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media(max-width:860px){ .main { grid-template-columns: 1fr; padding: 16px; } }
+
+  /* ─── 2040 情境比較 ─── */
+  .scenario-card { border-radius: 12px; padding: 20px 22px; }
+  .scenario-card.optimistic { background: var(--green-bg); border: 1.5px solid var(--green-bd); }
+  .scenario-card.conservative { background: var(--yellow-bg); border: 1.5px solid var(--yellow-bd); }
+  .scenario-title { font-weight: 800; font-size: 15px; margin-bottom: 12px; }
+  .scenario-card.optimistic .scenario-title { color: var(--green); }
+  .scenario-card.conservative .scenario-title { color: var(--yellow); }
+  .scenario-row { display: flex; justify-content: space-between; font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed rgba(0,0,0,.08); }
+  .scenario-row:last-of-type { border-bottom: none; }
+  .scenario-row .v { font-weight: 700; }
+  .scenario-result { margin-top: 14px; padding: 12px 14px; border-radius: 8px; background: rgba(255,255,255,.6); text-align: center; }
+  .scenario-result .big { font-size: 24px; font-weight: 900; }
+  .scenario-card.optimistic .scenario-result .big { color: var(--green); }
+  .scenario-card.conservative .scenario-result .big { color: var(--yellow); }
+  .scenario-result .vs { font-size: 11px; color: var(--gray); margin-top: 4px; }
+  .formula-box {
+    background: var(--dark); color: #E2E8F0; border-radius: 10px;
+    padding: 16px 20px; font-family: 'Courier New', monospace; font-size: 12.5px;
+    line-height: 1.9; overflow-x: auto;
+  }
+  .formula-box .hl { color: #FCD34D; font-weight: 700; }
+  .formula-box .res { color: #6EE7B7; font-weight: 700; }
 
   /* ─── SECTION CARD ─── */
   .card {
@@ -236,8 +274,14 @@
   <div class="leg"><div class="leg-dot" style="background:#DC2626;"></div> 需能源管理委員會決議</div>
 </div>
 
+<!-- ╔══ TAB NAV ══╗ -->
+<div class="tabnav">
+  <button class="tab-btn active" onclick="switchTab('progress', this)">📋 執行進度總覽</button>
+  <button class="tab-btn" onclick="switchTab('2040', this)">🎯 2040 SBTi 目標推算</button>
+</div>
+
 <!-- ╔══ MAIN GRID ══╗ -->
-<div class="main">
+<div class="main tabpanel active" id="tab-progress">
 
   <!-- ── 已完成（綠）── -->
   <div class="card green">
@@ -578,6 +622,85 @@
 
 </div><!-- /main -->
 
+<!-- ╔══ 2040 SBTi 目標推算 ══╗ -->
+<div class="main tabpanel" id="tab-2040">
+
+  <!-- 公式說明（全寬）-->
+  <div class="card white full">
+    <div class="card-head">
+      <span class="card-head-icon">📐</span>
+      2040 年 SBTi 1.5°C 目標換算公式
+    </div>
+    <div style="padding:18px 20px;">
+      <div class="formula-box">
+2040目標 = 基準年(<span class="hl">9,175</span>) × (1 − <span class="hl">4.2%/年</span> × <span class="hl">16年</span>)<br>
+        &nbsp;&nbsp;&nbsp;= 9,175 × (1 − 67.2%)<br>
+        &nbsp;&nbsp;&nbsp;= 9,175 × 32.8%<br>
+        &nbsp;&nbsp;&nbsp;= <span class="res">3,009 tCO₂e</span>
+      </div>
+      <div style="font-size:11.5px;color:var(--gray);margin-top:12px;line-height:1.8;">
+        ⚙️ <strong>4.2%/年</strong>：SBTi「絕對削減法」對齊 1.5°C 情境的跨產業最低線性削減率（非慈濟自訂，依 IPCC 全球碳預算反推）。<br>
+        ⚙️ <strong>16年</strong>：2040 − 基準年 2024。<br>
+        ⚙️ 採用<strong>線性</strong>（非複利）：每年固定削減「基準年」的 4.2%，與 2030 目標（6,863 tCO₂e）計算方式一致，已驗證吻合。
+      </div>
+    </div>
+  </div>
+
+  <!-- 樂觀情境 -->
+  <div class="scenario-card optimistic">
+    <div class="scenario-title">🟢 樂觀情境（Scope1+2 全採計）</div>
+    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v">9,175</span></div>
+    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−2,748</span></div>
+    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店）</span><span class="v">−424.8</span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散）</span><span class="v">−1,161.9</span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope2（節電，理論上限）</span><span class="v">−3,594.0</span></div>
+    <div class="scenario-result">
+      <div class="big">≈ 1,246 tCO₂e</div>
+      <div class="vs">vs 2040目標 3,009 → ✅ 超額達標 1,763 tCO₂e，可能提前至 2030 年前達成</div>
+    </div>
+  </div>
+
+  <!-- 保守情境 -->
+  <div class="scenario-card conservative">
+    <div class="scenario-title">🟡 保守情境（冰機僅採計 Scope1，排除未驗證 Scope2）</div>
+    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v">9,175</span></div>
+    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−2,748</span></div>
+    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店）</span><span class="v">−424.8</span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散）</span><span class="v">−1,161.9</span></div>
+    <div class="scenario-row"><span style="opacity:.4;">（Scope2 節電效益未確定兌現，不計入）</span><span class="v" style="opacity:.4;">—</span></div>
+    <div class="scenario-result">
+      <div class="big">≈ 4,840 tCO₂e</div>
+      <div class="vs">vs 2040目標 3,009 → ⚠️ 缺口約 1,831 tCO₂e，需 LED／公務車電動化等行動補上</div>
+    </div>
+  </div>
+
+  <!-- 結論（全寬）-->
+  <div class="card yellow full">
+    <div class="card-head">
+      <span class="card-head-icon">💡</span>
+      結論與建議
+    </div>
+    <div class="card-body" style="padding:18px 20px;">
+      <div class="item">
+        <span class="item-icon">✅</span>
+        <div class="item-main">
+          <div class="item-title">2040 年目標「有條件可達成」</div>
+          <div class="item-detail">若冰機節電效益（Scope2）如理論估算兌現 → 大幅超額達標，甚至可能提前 10 年（2030年前）達成；若僅冷媒逸散減量（Scope1）兌現、節電未達預期 → 仍有約 1,800 tCO₂e 缺口</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="item-icon">🎯</span>
+        <div class="item-main">
+          <div class="item-title">建議：盡快量化 LED 汰換與公務車電動化</div>
+          <div class="item-detail">這兩項目前都標「待量化」，是補保守情境缺口的關鍵槓桿，可讓 2040 達標不完全依賴冰機 Scope2 理論值兌現</div>
+          <div class="item-badges"><span class="badge badge-orange">待量化</span><span class="badge badge-gray">優先補強項目</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-2040 -->
+
 <!-- ╔══ FOOTER ══╗ -->
 <div class="footer">
   <div>
@@ -592,5 +715,13 @@
   </div>
 </div>
 
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tabpanel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
 </body>
 </html>
