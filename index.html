@@ -88,6 +88,21 @@
     padding-top: 20px;
   }
   .cover-meta span strong { color: var(--white); }
+  .cover-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .cover-nav-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+    color: #fff; border-radius: 20px; padding: 6px 16px;
+    font-size: 12px; font-weight: 700; text-decoration: none;
+    transition: background .2s;
+  }
+  .cover-nav-btn:hover { background: rgba(255,255,255,.25); }
 
   /* ── 內文區塊 ── */
   .content { padding: 0 56px 60px; }
@@ -375,6 +390,11 @@
       <span><strong>報告日期</strong><br>2026 年 6 月</span>
       <span><strong>涵蓋範圍</strong><br>慈濟慈善基金會 23 個會所</span>
       <span><strong>資料認證</strong><br>SGS 第三方碳盤查認證</span>
+    </div>
+    <div class="cover-nav">
+      <a class="cover-nav-btn" href="public-pathway.html">🌱 公眾溝通版</a>
+      <a class="cover-nav-btn" href="dashboard.html">📊 進度儀表板</a>
+      <a class="cover-nav-btn" href="chiller-priority.html">🧊 冰機汰換計畫</a>
     </div>
   </div>
 
