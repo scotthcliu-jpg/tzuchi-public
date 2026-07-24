@@ -336,20 +336,27 @@
     margin-top: 4px;
   }
 
-  /* ── 返回儀表板（hero 右上角浮動按鈕）── */
-  .back-btn {
-    position: absolute; top: 20px; right: 28px; z-index: 10;
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
-    color: #fff; border-radius: 20px; padding: 4px 14px;
-    font-size: 11px; font-weight: 700; text-decoration: none;
-    transition: background .2s;
-  }
-  .back-btn:hover { background: rgba(255,255,255,.28); }
+  /* ── hero 右上角日期標示 ── */
   .header-date {
-    position: absolute; top: 52px; right: 28px; z-index: 10;
+    position: absolute; top: 20px; right: 28px; z-index: 10;
     font-size: 11px; color: rgba(255,255,255,.55);
   }
+  /* ── hero 右下角導覽按鈕 ── */
+  .hero-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .hero-nav-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+    color: #fff; border-radius: 20px; padding: 6px 16px;
+    font-size: 12px; font-weight: 700; text-decoration: none;
+    transition: background .2s;
+  }
+  .hero-nav-btn:hover { background: rgba(255,255,255,.28); }
 
   /* ── 頁尾 ── */
   .footer {
@@ -373,7 +380,6 @@
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
     <div class="hero-deco hero-deco-3"></div>
-    <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
     <div class="header-date">更新：2026.07.24</div>
 
     <div class="hero-tag">CLIMATE ACTION · 氣候行動</div>
@@ -398,6 +404,11 @@
         <span class="num">2027</span>
         <span class="lbl">預計提前 3 年<br>達成 2030 減碳目標</span>
       </div>
+    </div>
+    <div class="hero-nav">
+      <a class="hero-nav-btn" href="index.html">📊 董事會報告</a>
+      <a class="hero-nav-btn" href="dashboard.html">📈 進度儀表板</a>
+      <a class="hero-nav-btn" href="chiller-priority.html">🧊 冰機汰換計畫</a>
     </div>
   </div>
   <div class="gold-bar"></div>

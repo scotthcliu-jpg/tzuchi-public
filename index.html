@@ -348,20 +348,12 @@
   }
   .footer strong { color: var(--tzu-blue); }
 
-  /* ── 返回儀表板 ── */
+  /* ── 頂部資訊列 ── */
   .back-nav {
     background: #003F7D; padding: 8px 24px;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: flex-end;
     flex-wrap: wrap; gap: 8px;
   }
-  .back-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
-    color: #fff; border-radius: 20px; padding: 4px 14px;
-    font-size: 11px; font-weight: 700; text-decoration: none;
-    transition: background .2s;
-  }
-  .back-btn:hover { background: rgba(255,255,255,.28); }
   .back-nav-label { font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: 1px; }
 
   /* 列印優化 */
@@ -374,9 +366,8 @@
 </head>
 <body>
 <div class="page-wrap">
-  <!-- 返回儀表板 -->
+  <!-- 頂部資訊列 -->
   <div class="back-nav">
-    <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
     <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 董事會報告　·　更新：2026.07.24</span>
   </div>
 

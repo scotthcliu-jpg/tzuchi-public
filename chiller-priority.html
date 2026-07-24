@@ -46,6 +46,15 @@
   .cstat-num { font-size:24px; font-weight:900; color:var(--gold); }
   .cstat-lbl { font-size:10px; color:rgba(255,255,255,.75); margin-top:2px; }
   .gold-bar { height:4px; background:linear-gradient(90deg,var(--gold),#E5C06A,var(--gold)); }
+  .cover-nav { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .cover-nav-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+    color: #fff; border-radius: 20px; padding: 6px 16px;
+    font-size: 12px; font-weight: 700; text-decoration: none;
+    transition: background .2s;
+  }
+  .cover-nav-btn:hover { background: rgba(255,255,255,.28); }
 
   /* ── 通用 section ── */
   .section { padding: 40px 56px; }
@@ -191,6 +200,11 @@
     <div class="cstat"><div class="cstat-num">905.8</div><div class="cstat-lbl">Scope 1 年減碳潛力 (tCO₂e)</div></div>
     <div class="cstat"><div class="cstat-num">3,128.0</div><div class="cstat-lbl">Scope 2 理論上限 (tCO₂e)</div></div>
     <div class="cstat"><div class="cstat-num">4,033.8</div><div class="cstat-lbl">Scope 1+2 合計潛力 (tCO₂e/年)</div></div>
+  </div>
+  <div class="cover-nav">
+    <a class="cover-nav-btn" href="index.html">📊 董事會報告</a>
+    <a class="cover-nav-btn" href="public-pathway.html">🌱 公眾溝通版</a>
+    <a class="cover-nav-btn" href="dashboard.html">📈 進度儀表板</a>
   </div>
 </div>
 <div class="gold-bar"></div>
