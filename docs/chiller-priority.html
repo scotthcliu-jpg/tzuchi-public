@@ -77,18 +77,6 @@
   .kpi.red .kpi-num   { color:var(--red); }
   .kpi-lbl  { font-size:11px; color:var(--gray); margin-top:4px; }
 
-  /* ── 緊急警示 ── */
-  .alert-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:8px; }
-  .alert-card { border-radius:10px; padding:14px 18px; display:flex; gap:14px; align-items:flex-start; }
-  .alert-card.crit  { background:#FEF0EE; border:1.5px solid #F1948A; }
-  .alert-card.warn  { background:#FDF5E0; border:1.5px solid #F0C040; }
-  .alert-icon { font-size:28px; flex-shrink:0; margin-top:2px; }
-  .alert-name { font-weight:800; font-size:14px; color:#1A202C; margin-bottom:4px; }
-  .alert-detail { font-size:11.5px; color:var(--gray); }
-  .alert-tag { display:inline-block; font-size:10px; font-weight:700; padding:2px 8px; border-radius:20px; margin-top:6px; }
-  .tag-crit { background:var(--red); color:#fff; }
-  .tag-warn { background:var(--orange); color:#fff; }
-
   /* ── 排名表 ── */
   .priority-table { width:100%; border-collapse:collapse; font-size:12px; }
   .priority-table th {
@@ -172,7 +160,6 @@
     .section { padding:28px 20px; }
     .cover { padding:36px 20px 28px; }
     .kpi-grid { grid-template-columns:repeat(2,1fr); }
-    .alert-grid { grid-template-columns:1fr; }
     .ref-grid { grid-template-columns:1fr; }
     .tl-item { grid-template-columns:90px 1fr; }
     .priority-table { font-size:11px; }
@@ -186,7 +173,7 @@
 <!-- 返回儀表板 -->
 <div class="back-nav">
   <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
-  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.07.24</span>
+  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.07.27</span>
 </div>
 
 <!-- ╔══ 封面 ══╗ -->
@@ -236,42 +223,6 @@
     ⚡ 2025 年 Scope 1+2 基準：9,175 tCO₂e｜2027 年太陽能全到位後預估 <strong>≈6,195 tCO₂e</strong>（已超額達成 2030 目標 6,863 tCO₂e，2026-06-23電力係數更正）。<br>
     ⚠️ 上方 Scope 2「理論上限」係以 RT × 年冷房時數估算，<strong>僅供 21 項主機跨設施相對排序比較</strong>，不可直接加總計入正式減碳路徑；正式路徑仍以 2027 預估 ≈6,195 tCO₂e 為準（2026-07-22重算：花蓮靜思堂CH-1備援機決議與大安聯絡處已汰換完成，皆已移出本表，KPI數字同步更新）。
   </p>
-</div>
-
-<!-- ╔══ 緊急警示 ══╗ -->
-<div class="section" style="background:#FFF8F7;">
-  <div class="section-label">URGENT ALERTS · 立即行動警示</div>
-  <div class="section-title">3 所設施需 2027 年前優先汰換</div>
-  <div class="section-sub">機齡超標、設備型式淘汰、R-22 料源風險三重緊急</div>
-  <div class="alert-grid">
-    <div class="alert-card crit">
-      <div class="alert-icon">⚠️</div>
-      <div>
-        <div class="alert-name">花蓮同心圓餐廳（東區）</div>
-        <div class="alert-detail">螺旋式 × 2 台｜廠牌：江陵｜1999 年啟用，<strong>機齡 27 年</strong><br>容量：500RT（250+250）｜R-22｜年保養 NT$181,000<br>與花蓮靜思堂毗鄰，可合併施工減少搬運成本</div>
-        <span class="alert-tag tag-crit">★★★ 最緊急</span>
-      </div>
-    </div>
-    <div class="alert-card warn">
-      <div class="alert-icon">⚠️</div>
-      <div>
-        <div class="alert-name">彰化分會 CH-2（中區）</div>
-        <div class="alert-detail">螺旋式 × 1 台｜廠牌：SINKO｜2000 年啟用，<strong>機齡 26 年</strong><br>容量：100RT｜R-22｜年保養含 CH-1 共 NT$153,800</div>
-        <span class="alert-tag tag-warn">★★★ 緊急</span>
-      </div>
-    </div>
-    <div class="alert-card warn">
-      <div class="alert-icon">⚠️</div>
-      <div>
-        <div class="alert-name">萬華聯絡處 CH-1（北區）</div>
-        <div class="alert-detail">螺旋式 × 1 台｜廠牌：江陵｜2000 年啟用，<strong>機齡 26 年</strong><br>容量：120RT｜R-22｜年保養 NT$94,600</div>
-        <span class="alert-tag tag-warn">★★★ 緊急</span>
-      </div>
-    </div>
-  </div>
-  <div style="font-size:11px;color:var(--gray);margin-top:12px;padding:8px 14px;background:#FFF0E8;border-radius:6px;border-left:3px solid var(--orange);">
-    📌 R-22（HCFC）臺灣已依蒙特婁議定書管制進口配額，2030 年前全面禁止。使用 R-22 機型每年維修費用攀升，建議優先汰換超過 20 年的 R-22 設備。
-  </div>
 </div>
 
 <!-- ╔══ 優先排序表 ══╗ -->
@@ -561,33 +512,6 @@
   </p>
 </div>
 
-<!-- ╔══ 冷媒結構 ══╗ -->
-<div class="section" style="background:var(--gray100);">
-  <div class="section-label">REFRIGERANT BREAKDOWN · 冷媒結構分析</div>
-  <div class="section-title">全院所冷媒組成與汰換效益</div>
-  <div class="section-sub">依 23 會所官方主檔（2026-06-12）重算，已排除台北東區聯絡處（範疇外）及民權聯絡處（改評估空調）｜R-134a 亦已排除已完成/已決議項目（花蓮靜思堂CH-1/2/4備援機決議1,250RT、桃園CHR-2新機160RT、大安聯絡處新機150RT，2026-07-22對照官方主檔重新核實，取代原15台/2,860RT舊統計）｜新機一律採用 R1234ze（GWP=6，IPCC AR5標準值，歐盟 F-Gas 認可低暖化冷媒）</div>
-  <div class="ref-grid">
-    <div class="ref-card r22">
-      <div class="ref-name">R-22</div>
-      <div class="ref-gwp">GWP = 1,810｜蒙特婁議定書管制 HCFC，2030年禁止進口</div>
-      <div class="ref-stat"><strong>32</strong> 台機組</div>
-      <div class="ref-stat"><strong>4,290</strong> RT 總容量</div>
-      <div class="ref-stat">年逸散：<strong>660.0</strong> tCO₂e</div>
-      <div class="ref-arrow">↓</div>
-      <div class="ref-new">換 R1234ze 後年減量：<strong>658.1 tCO₂e</strong></div>
-    </div>
-    <div class="ref-card r134">
-      <div class="ref-name">R-134a</div>
-      <div class="ref-gwp">GWP = 1,430｜HFC，中長期仍需汰換</div>
-      <div class="ref-stat"><strong>12</strong> 台機組</div>
-      <div class="ref-stat"><strong>2,050</strong> RT 總容量</div>
-      <div class="ref-stat">年逸散：<strong>249.2</strong> tCO₂e</div>
-      <div class="ref-arrow">↓</div>
-      <div class="ref-new">換 R1234ze 後年減量：<strong>248.1 tCO₂e</strong></div>
-    </div>
-  </div>
-</div>
-
 <!-- ╔══ 分年度計畫 ══╗ -->
 <div class="section">
   <div class="section-label">PHASED PLAN · 分年度汰換計畫</div>
@@ -713,6 +637,33 @@
   </div>
   <div style="margin-top:10px;padding:10px 14px;background:#FFF8E1;border-radius:8px;border-left:3px solid var(--gold);font-size:11.5px;color:#744210;">
     ⚠️ 本路線圖排序與「23會所冰水主機完整主檔與優先排序」表完全一致（同一份優先分數，唯一來源），不再另立獨立分組邏輯，避免兩處敘事各自漂移。合計潛力數字為 Scope2 RT基礎理論上限，僅供跨設施相對比較，不可直接加總計入正式減碳路徑。
+  </div>
+</div>
+
+<!-- ╔══ 冷媒結構 ══╗ -->
+<div class="section" style="background:var(--gray100);">
+  <div class="section-label">REFRIGERANT BREAKDOWN · 冷媒結構分析</div>
+  <div class="section-title">全院所冷媒組成與汰換效益</div>
+  <div class="section-sub">依 23 會所官方主檔（2026-06-12）重算，已排除台北東區聯絡處（範疇外）及民權聯絡處（改評估空調）｜R-134a 亦已排除已完成/已決議項目（花蓮靜思堂CH-1/2/4備援機決議1,250RT、桃園CHR-2新機160RT、大安聯絡處新機150RT，2026-07-22對照官方主檔重新核實，取代原15台/2,860RT舊統計）｜新機一律採用 R1234ze（GWP=6，IPCC AR5標準值，歐盟 F-Gas 認可低暖化冷媒）</div>
+  <div class="ref-grid">
+    <div class="ref-card r22">
+      <div class="ref-name">R-22</div>
+      <div class="ref-gwp">GWP = 1,810｜蒙特婁議定書管制 HCFC，2030年禁止進口</div>
+      <div class="ref-stat"><strong>32</strong> 台機組</div>
+      <div class="ref-stat"><strong>4,290</strong> RT 總容量</div>
+      <div class="ref-stat">年逸散：<strong>660.0</strong> tCO₂e</div>
+      <div class="ref-arrow">↓</div>
+      <div class="ref-new">換 R1234ze 後年減量：<strong>658.1 tCO₂e</strong></div>
+    </div>
+    <div class="ref-card r134">
+      <div class="ref-name">R-134a</div>
+      <div class="ref-gwp">GWP = 1,430｜HFC，中長期仍需汰換</div>
+      <div class="ref-stat"><strong>12</strong> 台機組</div>
+      <div class="ref-stat"><strong>2,050</strong> RT 總容量</div>
+      <div class="ref-stat">年逸散：<strong>249.2</strong> tCO₂e</div>
+      <div class="ref-arrow">↓</div>
+      <div class="ref-new">換 R1234ze 後年減量：<strong>248.1 tCO₂e</strong></div>
+    </div>
   </div>
 </div>
 
