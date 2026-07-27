@@ -104,14 +104,15 @@
 
   /* ── 分年度時間軸 ── */
   .timeline { position:relative; padding-left:0; margin-top:16px; }
-  .tl-item { display:grid; grid-template-columns:110px 1fr; gap:0; margin-bottom:0; }
+  .tl-item { display:grid; grid-template-columns:160px 1fr; gap:0; margin-bottom:0; }
   .tl-year-col { padding:16px 20px 16px 0; text-align:right; }
-  .tl-year-badge { display:inline-block; padding:6px 14px; border-radius:8px; font-weight:800; font-size:13px; color:#fff; }
+  .tl-year-badge { display:inline-block; padding:7px 16px; border-radius:8px; font-weight:800; font-size:16px; color:#fff; }
   .tl-content-col { border-left:3px solid var(--gray300); padding:16px 0 16px 24px; }
   .tl-item:last-child .tl-content-col { border-left-color:transparent; }
   .tl-dot { width:14px; height:14px; border-radius:50%; position:absolute; left:-8.5px; top:20px; border:2px solid #fff; }
   .tl-content-col { position:relative; }
   .tl-phase-title { font-weight:800; font-size:14px; margin-bottom:10px; }
+  .tl-phase-note { white-space:nowrap; }
   .tl-chips { display:flex; flex-wrap:wrap; gap:8px; }
   .tl-chip { background:var(--gray100); border-radius:20px; padding:5px 14px; font-size:11.5px; border:1px solid var(--gray300); }
   .tl-chip strong { color:var(--blue); }
@@ -161,7 +162,8 @@
     .cover { padding:36px 20px 28px; }
     .kpi-grid { grid-template-columns:repeat(2,1fr); }
     .ref-grid { grid-template-columns:1fr; }
-    .tl-item { grid-template-columns:90px 1fr; }
+    .tl-item { grid-template-columns:120px 1fr; }
+    .tl-year-badge { font-size:14px; }
     .priority-table { font-size:11px; }
     .priority-table th, .priority-table td { padding:7px 6px; }
   }
@@ -605,7 +607,7 @@
       <div class="tl-content-col">
         <div style="position:relative;">
           <span class="tl-dot" style="background:var(--blue);"></span>
-          <div class="tl-phase-title">中高：排名第18–19名 ＋ R-22 收尾</div>
+          <div class="tl-phase-title">中高：排名第18–19名 <span class="tl-phase-note">（R-22 收尾，2030 進口禁令前）</span></div>
           <div class="tl-chips">
             <span class="tl-chip chip-r22">#18 <strong>雙和聯絡處 CH-2</strong>｜100RT R-22 16年</span>
             <span class="tl-chip chip-urgent">#20 <strong>萬華聯絡處 CH-2</strong>｜50RT R-22 16年（提前排入：優先分數雖僅44分排名倒數，但屬R-22須趕在2030禁令前完成，不可延後至2030後）</span>
