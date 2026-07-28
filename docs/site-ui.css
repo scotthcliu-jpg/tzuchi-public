@@ -1,0 +1,165 @@
+/* Shared responsive layout and light/dark theme controls for all public pages. */
+html { background:#EEF2F8; }
+body { min-width:0; overflow-x:hidden; transition:background-color .2s ease, color .2s ease; }
+img, svg { max-width:100%; height:auto; }
+button, input, select, textarea { font:inherit; }
+
+.theme-toggle {
+  position:fixed; right:20px; bottom:20px; z-index:1000;
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 14px; border:1px solid rgba(148,163,184,.65); border-radius:999px;
+  background:#FFFFFF; color:#0F172A; box-shadow:0 8px 22px rgba(15,23,42,.18);
+  cursor:pointer; font-size:12px; font-weight:800; line-height:1;
+}
+.theme-toggle:hover { transform:translateY(-1px); box-shadow:0 10px 24px rgba(15,23,42,.24); }
+.theme-toggle:focus-visible { outline:3px solid #FCD34D; outline-offset:3px; }
+
+/* Tablet */
+@media (max-width:960px) {
+  body > .page-wrap, body > .page, body > .card { width:100%; max-width:none; margin:0; border-radius:0; box-shadow:none; }
+  body > .card { min-height:100vh; }
+  .cover, .hero, .header { padding:36px 28px 30px; }
+  .content, .section, .pathway-section, .actions-section, .outlook-section { padding-left:28px; padding-right:28px; }
+  .footer, .back-nav { padding-left:28px; padding-right:28px; }
+  .cover-meta { flex-wrap:wrap; gap:16px 24px; }
+  .cover-stats { gap:12px; }
+  .cstat { flex:1 1 140px; min-width:0; }
+  .kpi-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .actions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .outlook-grid { grid-template-columns:1fr; }
+  .promise-section { gap:24px; padding-left:28px; padding-right:28px; }
+  .priority-table { display:block; overflow-x:auto; white-space:nowrap; }
+  .priority-table th, .priority-table td { white-space:nowrap; }
+}
+
+/* Phone */
+@media (max-width:600px) {
+  body { font-size:13px; }
+  .theme-toggle { right:14px; bottom:14px; padding:9px 12px; }
+  .cover, .hero, .header { padding:30px 20px 26px; }
+  .cover h1, .cover-title { font-size:25px; }
+  .cover h2 { font-size:15px; margin-bottom:24px; }
+  .hero-title { font-size:29px; }
+  .hero-sub { font-size:13px; margin-bottom:22px; }
+  .header-title { font-size:22px; }
+  .header-top { gap:8px; }
+  .header-date { padding-top:0; }
+  .header-links, .cover-nav, .hero-nav { justify-content:flex-start; margin-top:18px; }
+  .cover-nav-btn, .hero-nav-btn, .hlink { padding:6px 11px; font-size:11px; }
+  .content, .section, .pathway-section, .actions-section, .outlook-section { padding:26px 18px; }
+  .main { padding:16px 14px; gap:14px; }
+  .footer, .back-nav, .legend, .tabnav { padding-left:18px; padding-right:18px; }
+  .footer { align-items:flex-start; flex-direction:column; }
+  .back-nav { justify-content:flex-start; }
+  .back-nav-label { font-size:10px; }
+  .cover-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; font-size:11px; }
+  .cover-meta span { min-width:0; }
+  .cover-stats, .hero-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .cstat, .stat-pill { min-width:0; padding:11px 8px; }
+  .cstat-num, .stat-pill .num { font-size:21px; }
+  .kpi-grid, .iso-grid, .actions-grid { grid-template-columns:1fr; }
+  .kpi-card, .action-card { padding:16px 14px; }
+  .kpi-strip .kpi-cell { flex:1 1 45%; min-width:0; padding:15px 10px; }
+  .kpi-n { font-size:23px; }
+  .kpi-l { font-size:10px; }
+  .scenario-card { padding:16px; }
+  .scenario-row { align-items:flex-start; flex-direction:column; gap:2px; }
+  .card-head { padding:12px 14px; }
+  .item { padding:10px 14px; }
+  .tl-mini { padding:8px 14px 12px; }
+  .tl-row { gap:7px; }
+  .tl-yr { width:64px; font-size:10.5px; }
+  .tl-chip { font-size:10.5px; padding:3px 8px; }
+  .pathway-wrap { height:228px; overflow-x:auto; overflow-y:hidden; }
+  .pathway-wrap .pathway-svg, .pathway-wrap .nodes { min-width:600px; }
+  .pathway-legend { justify-content:flex-start; flex-wrap:wrap; gap:8px 16px; }
+  .promise-section { align-items:flex-start; flex-direction:column; padding:28px 20px; }
+  .promise-right { text-align:left; }
+  .promise-big { font-size:34px; }
+  .hero-deco { opacity:.55; }
+  .header-date { position:static; margin-bottom:12px; }
+  .tl-item { grid-template-columns:92px minmax(0,1fr); }
+  .tl-year-col { padding-right:12px; }
+  .tl-content-col { padding-left:18px; }
+  .tl-year-badge { font-size:12px; padding:6px 9px; }
+  .ref-grid { grid-template-columns:1fr; }
+  table { display:block; overflow-x:auto; white-space:nowrap; font-size:11px; }
+  thead th, tbody td { padding:8px 9px; }
+}
+
+/* Dark mode: preserve the blue/gold report identity while converting page surfaces to black. */
+html[data-theme="dark"] { background:#070B12; color-scheme:dark; }
+html[data-theme="dark"] body { background:#070B12 !important; color:#E5E7EB; }
+html[data-theme="dark"] .page-wrap,
+html[data-theme="dark"] .page,
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .content,
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .actions-section,
+html[data-theme="dark"] .card-body,
+html[data-theme="dark"] .tl-mini,
+html[data-theme="dark"] .kpi-strip,
+html[data-theme="dark"] .tabnav { background:#111827 !important; color:#E5E7EB; }
+html[data-theme="dark"] .pathway-section,
+html[data-theme="dark"] .outlook-section,
+html[data-theme="dark"] .legend,
+html[data-theme="dark"] .summary-box,
+html[data-theme="dark"] .pathway,
+html[data-theme="dark"] .scenario-result,
+html[data-theme="dark"] .outlook-card,
+html[data-theme="dark"] .iso-card,
+html[data-theme="dark"] .kpi-card { background:#182235 !important; border-color:#334155 !important; }
+html[data-theme="dark"] .footer { background:#080E19 !important; border-color:#334155 !important; color:#CBD5E1 !important; }
+html[data-theme="dark"] .footer strong,
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .item-title,
+html[data-theme="dark"] .action-title,
+html[data-theme="dark"] .node-val,
+html[data-theme="dark"] .outlook-row .v,
+html[data-theme="dark"] .bar-value,
+html[data-theme="dark"] .summary-box strong { color:#F8FAFC !important; }
+html[data-theme="dark"] .section-sub,
+html[data-theme="dark"] .item-detail,
+html[data-theme="dark"] .kpi-l,
+html[data-theme="dark"] .kpi-lbl,
+html[data-theme="dark"] .action-desc,
+html[data-theme="dark"] .action-unit,
+html[data-theme="dark"] .node-year,
+html[data-theme="dark"] .node-sub,
+html[data-theme="dark"] .outlook-row,
+html[data-theme="dark"] .outlook-result .sub,
+html[data-theme="dark"] .summary-box p,
+html[data-theme="dark"] .m-text,
+html[data-theme="dark"] .bar-label,
+html[data-theme="dark"] .bar-sublabel,
+html[data-theme="dark"] .legend-item,
+html[data-theme="dark"] .ref-gwp,
+html[data-theme="dark"] .ref-stat { color:#CBD5E1 !important; }
+html[data-theme="dark"] .item,
+html[data-theme="dark"] .tl-row,
+html[data-theme="dark"] .priority-table td,
+html[data-theme="dark"] table td { border-color:#334155 !important; }
+html[data-theme="dark"] .item:hover { background:#1E293B !important; }
+html[data-theme="dark"] tbody tr:nth-child(odd),
+html[data-theme="dark"] .tr-done,
+html[data-theme="dark"] .tr-crit,
+html[data-theme="dark"] .tr-urgent,
+html[data-theme="dark"] .tr-high,
+html[data-theme="dark"] .tr-medium,
+html[data-theme="dark"] .tr-low { background:#182235 !important; }
+html[data-theme="dark"] .card.green .card-head { background:#133526 !important; }
+html[data-theme="dark"] .card.yellow .card-head { background:#3A2A10 !important; }
+html[data-theme="dark"] .card.red .card-head { background:#3A1820 !important; }
+html[data-theme="dark"] .card.white .card-head { background:#1E293B !important; color:#E5E7EB !important; }
+html[data-theme="dark"] .action-card.solar { background:#33280F !important; border-color:#735B1A !important; }
+html[data-theme="dark"] .action-card.chiller { background:#142A4A !important; border-color:#2D5C97 !important; }
+html[data-theme="dark"] .action-card.iso { background:#143526 !important; border-color:#2C7450 !important; }
+html[data-theme="dark"] .action-card.ev { background:#2A1D45 !important; border-color:#60449A !important; }
+html[data-theme="dark"] .ref-card.r22 { background:#3B1C22 !important; }
+html[data-theme="dark"] .ref-card.r410 { background:#3A2A10 !important; }
+html[data-theme="dark"] .ref-card.r134 { background:#142A4A !important; }
+html[data-theme="dark"] .tl-chip.low,
+html[data-theme="dark"] .badge-gray { background:#263449 !important; color:#E2E8F0 !important; }
+html[data-theme="dark"] .theme-toggle { background:#F8FAFC; color:#0F172A; }
+
+@media print { .theme-toggle { display:none !important; } }
