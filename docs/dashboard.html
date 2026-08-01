@@ -230,7 +230,7 @@
       <h1 class="header-title">慈濟慈善基金會<br><em>SBTi 淨零減碳路徑</em>執行儀表板</h1>
       <div class="header-sub">23 會所 · 基準年 2024 · 1.5°C 科學目標 · 2030 年達標</div>
     </div>
-    <div class="header-date">更新：2026.07.29</div>
+    <div class="header-date">更新：2026.08.01</div>
   </div>
   <div class="header-links">
     <a class="hlink" href="index.html">📊 能管委員會報告</a>
@@ -535,10 +535,10 @@
     </div>
     <div style="padding:18px 20px;">
       <div class="formula-box">
-2040目標 = 基準年(<span class="hl">9,175</span>) × (1 − <span class="hl">4.2%/年</span> × <span class="hl">16年</span>)<br>
+2040目標 = 基準年(<span class="hl" data-sbti="input.baseline"></span>) × (1 − <span class="hl">4.2%/年</span> × <span class="hl">16年</span>)<br>
         &nbsp;&nbsp;&nbsp;= 9,175 × (1 − 67.2%)<br>
         &nbsp;&nbsp;&nbsp;= 9,175 × 32.8%<br>
-        &nbsp;&nbsp;&nbsp;= <span class="res">3,009 tCO₂e</span>
+        &nbsp;&nbsp;&nbsp;= <span class="res" data-sbti="scenario.target-2040"></span> tCO₂e
       </div>
       <div style="font-size:11.5px;color:var(--gray);margin-top:12px;line-height:1.8;">
         ⚙️ <strong>4.2%/年</strong>：SBTi「絕對削減法」對齊 1.5°C 情境的跨產業最低線性削減率（非慈濟自訂，依 IPCC 全球碳預算反推）。<br>
@@ -551,28 +551,28 @@
   <!-- 樂觀情境 -->
   <div class="scenario-card optimistic">
     <div class="scenario-title">🟢 樂觀情境（Scope1+2 全採計）</div>
-    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v">9,175</span></div>
-    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−2,635</span></div>
-    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店，2026-07-15刪除113-03重複計算）</span><span class="v">−345.2</span></div>
-    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散，2026-07-22依21項排序表重算，原1,161.9）</span><span class="v">−905.8</span></div>
-    <div class="scenario-row"><span>− 冰機待執行 Scope2（節電，理論上限，2026-07-22依21項排序表重算，原3,449）</span><span class="v">−3,128.0</span></div>
+    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v" data-sbti="input.baseline"></span></div>
+    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−<span data-sbti="input.solar"></span></span></div>
+    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店，2026-07-15刪除113-03重複計算）</span><span class="v">−<span data-sbti="input.completed-chillers"></span></span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散，2026-07-22依21項排序表重算，原1,161.9）</span><span class="v">−<span data-sbti="input.pending-chiller-scope1"></span></span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope2（節電，理論上限，2026-07-22依21項排序表重算，原3,449）</span><span class="v">−<span data-sbti="input.pending-chiller-scope2"></span></span></div>
     <div class="scenario-result">
-      <div class="big">≈ 2,161 tCO₂e</div>
-      <div class="vs">vs 2040目標 3,009 → ✅ 超額達標約848 tCO₂e，可能提前至 2030 年前達成</div>
+      <div class="big" data-sbti="scenario.optimistic-result"></div>
+      <div class="vs">vs 2040目標 <span data-sbti="scenario.target-2040"></span> → ✅ <span data-sbti="scenario.optimistic-surplus"></span> tCO₂e，可能提前至 2030 年前達成</div>
     </div>
   </div>
 
   <!-- 保守情境 -->
   <div class="scenario-card conservative">
     <div class="scenario-title">🟡 保守情境（冰機僅採計 Scope1，排除未驗證 Scope2）</div>
-    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v">9,175</span></div>
-    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−2,635</span></div>
-    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店，2026-07-15刪除113-03重複計算）</span><span class="v">−345.2</span></div>
-    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散，2026-07-22依21項排序表重算，原1,161.9）</span><span class="v">−905.8</span></div>
+    <div class="scenario-row"><span>基準年 Scope1+2（2024）</span><span class="v" data-sbti="input.baseline"></span></div>
+    <div class="scenario-row"><span>− 太陽能全到位（2027）</span><span class="v">−<span data-sbti="input.solar"></span></span></div>
+    <div class="scenario-row"><span>− 冰機已完成（花蓮+桃園+新店，2026-07-15刪除113-03重複計算）</span><span class="v">−<span data-sbti="input.completed-chillers"></span></span></div>
+    <div class="scenario-row"><span>− 冰機待執行 Scope1（冷媒逸散，2026-07-22依21項排序表重算，原1,161.9）</span><span class="v">−<span data-sbti="input.pending-chiller-scope1"></span></span></div>
     <div class="scenario-row"><span style="opacity:.4;">（Scope2 節電效益未確定兌現，不計入）</span><span class="v" style="opacity:.4;">—</span></div>
     <div class="scenario-result">
-      <div class="big">≈ 5,289 tCO₂e</div>
-      <div class="vs">vs 2040目標 3,009 → ⚠️ 缺口約 2,280 tCO₂e，需 LED／公務車電動化等行動補上</div>
+      <div class="big" data-sbti="scenario.conservative-result"></div>
+      <div class="vs">vs 2040目標 <span data-sbti="scenario.target-2040"></span> → ⚠️ <span data-sbti="scenario.conservative-gap"></span> tCO₂e，需 LED／公務車電動化等行動補上</div>
     </div>
   </div>
 
@@ -587,7 +587,7 @@
         <span class="item-icon">✅</span>
         <div class="item-main">
           <div class="item-title">2040 年目標「有條件可達成」</div>
-          <div class="item-detail">若冰機節電效益（Scope2）如理論估算兌現 → 大幅超額達標，甚至可能提前 10 年（2030年前）達成；若僅冷媒逸散減量（Scope1）兌現、節電未達預期 → 仍有約 2,280 tCO₂e 缺口（2026-07-22依21項排序表重算）</div>
+          <div class="item-detail">若冰機節電效益（Scope2）如理論估算兌現 → 大幅超額達標，甚至可能提前 10 年（2030年前）達成；若僅冷媒逸散減量（Scope1）兌現、節電未達預期 → 仍有約 <span data-sbti="scenario.conservative-gap-value"></span> tCO₂e 缺口（2026-07-22依21項排序表重算）</div>
         </div>
       </div>
       <div class="item">
@@ -624,6 +624,10 @@ function switchTab(name, btn) {
   document.getElementById('tab-' + name).classList.add('active');
   btn.classList.add('active');
 }
+</script>
+<script type="module">
+import { renderSBTIMetrics } from './assets/sbti-metrics.js';
+renderSBTIMetrics();
 </script>
 </body>
 </html>

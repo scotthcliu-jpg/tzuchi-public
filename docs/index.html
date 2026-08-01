@@ -370,7 +370,7 @@
 <div class="page-wrap">
   <!-- 頂部資訊列 -->
   <div class="back-nav">
-    <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 能源管理委員會報告　·　更新：2026年8月</span>
+    <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 能源管理委員會報告　·　更新：2026.08.01</span>
   </div>
 
   <!-- ╔═══ 封面 ═══╗ -->
@@ -597,24 +597,24 @@
           </tr>
           <tr>
             <td rowspan="2"><strong>2040</strong></td>
-            <td rowspan="2">3,009</td>
+            <td rowspan="2" data-sbti="scenario.target-2040"></td>
             <td><strong style="color:var(--tzu-green);">可能提前至 2030 前</strong></td>
-            <td>≈ 1,246</td>
-            <td style="color:var(--tzu-green);">超額 1,763</td>
+            <td data-sbti="scenario.optimistic-result"></td>
+            <td style="color:var(--tzu-green);" data-sbti="scenario.optimistic-surplus"></td>
             <td>🟢 樂觀：23 會所冰機全數汰換，Scope1+2 效益全採計</td>
           </tr>
           <tr>
             <td><strong style="color:var(--tzu-red);">2040 尚未達標</strong></td>
-            <td>≈ 4,840</td>
-            <td style="color:var(--tzu-red);">缺口 1,831</td>
+            <td data-sbti="scenario.conservative-result"></td>
+            <td style="color:var(--tzu-red);" data-sbti="scenario.conservative-gap"></td>
             <td>🟡 保守：冰機僅採計 Scope1（冷媒逸散），Scope2 節電效益未驗證不計入</td>
           </tr>
         </tbody>
       </table>
 
       <div class="summary-box" style="margin-top:16px;">
-        <p><strong>2040 目標換算</strong>：基準年(9,175) × (1 − 4.2%/年 × 16年) = 9,175 × 32.8% = <strong>3,009 tCO₂e</strong>（與 2030 目標同一公式，SBTi 1.5°C 絕對削減法線性軌跡）</p>
-        <p><strong>結論</strong>：2040 年目標「有條件可達成」。冰機 Scope 2 節電效益若如理論估算兌現，可大幅超額並提前至 2030 年前達成；若僅冷媒逸散減量兌現，仍有約 2,280 tCO₂e 缺口（2026-07-22依21項排序表重算），需靠 LED 汰換、公務車電動化等待量化行動補足。</p>
+        <p><strong>2040 目標換算</strong>：基準年(9,175) × (1 − 4.2%/年 × 16年) = 9,175 × 32.8% = <strong data-sbti="scenario.target-2040"></strong> tCO₂e（與 2030 目標同一公式，SBTi 1.5°C 絕對削減法線性軌跡）</p>
+        <p><strong>結論</strong>：2040 年目標「有條件可達成」。冰機 Scope 2 節電效益若如理論估算兌現，可大幅超額並提前至 2030 年前達成；若僅冷媒逸散減量兌現，仍有約 <span data-sbti="scenario.conservative-gap-value"></span> tCO₂e 缺口（2026-07-22依21項排序表重算），需靠 LED 汰換、公務車電動化等待量化行動補足。</p>
       </div>
     </div>
 
@@ -777,5 +777,9 @@
   </div>
 
 </div><!-- /page-wrap -->
+<script type="module">
+  import { renderSBTIMetrics } from './assets/sbti-metrics.js';
+  renderSBTIMetrics();
+</script>
 </body>
 </html>

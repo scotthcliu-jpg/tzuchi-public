@@ -176,7 +176,7 @@
 <!-- 返回儀表板 -->
 <div class="back-nav">
   <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
-  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.07.29</span>
+  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.08.01</span>
 </div>
 
 <!-- ╔══ 封面 ══╗ -->
@@ -185,11 +185,11 @@
   <h1 class="cover-title">慈濟慈善基金會<br>冰水主機汰換<em>優先排序</em>計畫</h1>
   <p class="cover-sub">21 項待汰換主機（44台）· Scope 1+2 最大化減碳策略｜2026–2031</p>
   <div class="cover-stats">
-    <div class="cstat"><div class="cstat-num">6,340</div><div class="cstat-lbl">待評估總冷凍噸數 (RT)</div></div>
+    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-capacity"></div><div class="cstat-lbl">待評估總冷凍噸數 (RT)</div></div>
     <div class="cstat"><div class="cstat-num">21</div><div class="cstat-lbl">項待汰換主機（44台）</div></div>
-    <div class="cstat"><div class="cstat-num">905.8</div><div class="cstat-lbl">Scope 1 年減碳潛力 (tCO₂e)</div></div>
-    <div class="cstat"><div class="cstat-num">3,128.0</div><div class="cstat-lbl">Scope 2 理論上限 (tCO₂e)</div></div>
-    <div class="cstat"><div class="cstat-num">4,033.8</div><div class="cstat-lbl">Scope 1+2 合計潛力 (tCO₂e/年)</div></div>
+    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-scope1"></div><div class="cstat-lbl">Scope 1 年減碳潛力 (tCO₂e)</div></div>
+    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-scope2"></div><div class="cstat-lbl">Scope 2 理論上限 (tCO₂e)</div></div>
+    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-total"></div><div class="cstat-lbl">Scope 1+2 合計潛力 (tCO₂e/年)</div></div>
   </div>
   <div class="cover-nav">
     <a class="cover-nav-btn" href="index.html">📊 能管委員會報告</a>
@@ -206,15 +206,15 @@
   <div class="section-sub">v2 標準化公式（2026-06-23 電力係數與GWP雙重更正）：Scope1 ＝ RT×(舊冷媒GWP−6)×0.000085（充填1kg/RT，運行洩漏率8.5%，新冷媒R1234ze之GWP由誤植1更正為IPCC AR5標準值6）；Scope2 ＝ RT×0.4934（年冷房2,000RT-h，效率提升52%，電力係數0.474，2026-06-23更正原0.494）</div>
   <div class="kpi-grid">
     <div class="kpi blue">
-      <div class="kpi-num">905.8</div>
+      <div class="kpi-num" data-sbti="input.pending-chiller-scope1"></div>
       <div class="kpi-lbl">Scope 1 冷媒逸散<br>年減碳潛力（tCO₂e）</div>
     </div>
     <div class="kpi green">
-      <div class="kpi-num">3,128.0</div>
+      <div class="kpi-num" data-sbti="input.pending-chiller-scope2"></div>
       <div class="kpi-lbl">Scope 2 節電效益<br>理論上限（tCO₂e）</div>
     </div>
     <div class="kpi gold">
-      <div class="kpi-num">4,033.8</div>
+      <div class="kpi-num" data-sbti="input.pending-chiller-total"></div>
       <div class="kpi-lbl">Scope 1+2 合計<br>排序用理論潛力（tCO₂e）</div>
     </div>
     <div class="kpi red">
@@ -716,5 +716,9 @@
 </div>
 
 </div><!-- /.page -->
+<script type="module">
+  import { renderSBTIMetrics } from './assets/sbti-metrics.js';
+  renderSBTIMetrics();
+</script>
 </body>
 </html>

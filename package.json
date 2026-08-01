@@ -1,0 +1,8 @@
+{
+  "name": "tzuchi-public",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "verify:sbti-2040": "node scripts/verify-sbti-2040.mjs"
+  }
+}

@@ -382,7 +382,7 @@
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
     <div class="hero-deco hero-deco-3"></div>
-    <div class="header-date">更新：2026.07.29</div>
+    <div class="header-date">更新：2026.08.01</div>
 
     <div class="hero-tag">CLIMATE ACTION · 氣候行動</div>
     <h1 class="hero-title">
@@ -614,8 +614,8 @@
       <!-- 2040 -->
       <div class="outlook-card conservative">
         <div class="outlook-year">🌏 2040 年 SBTi 科學目標</div>
-        <div class="outlook-row"><span>科學目標值</span><span class="v">3,009 噸</span></div>
-        <div class="outlook-row"><span>全計畫執行後預估</span><span class="v">≈ 2,161～5,289 噸</span></div>
+        <div class="outlook-row"><span>科學目標值</span><span class="v"><span data-sbti="scenario.target-2040"></span> 噸</span></div>
+        <div class="outlook-row"><span>全計畫執行後預估</span><span class="v">≈ <span data-sbti="scenario.optimistic-range-value"></span>～<span data-sbti="scenario.conservative-range-value"></span> 噸</span></div>
         <div class="outlook-result">
           <div class="big" style="color:#92400E;">努力中，有信心達成</div>
           <div class="sub">冰水主機全面汰換的節電效益若如期實現，可超額達標並提前；目前仍持續驗證中</div>
@@ -625,7 +625,7 @@
     </div>
 
     <p style="margin-top:16px; font-size:11px; color:var(--gray); line-height:1.8;">
-      ※ 2040 目標換算：基準年 9,175 噸 ×（1 − 4.2%/年 × 16年）= 3,009 噸（與 2030 目標同一 SBTi 1.5°C 公式）。
+      ※ 2040 目標換算：基準年 9,175 噸 ×（1 − 4.2%/年 × 16年）= <span data-sbti="scenario.target-2040"></span> 噸（與 2030 目標同一 SBTi 1.5°C 公式）。
       範圍值反映冰水主機汰換節電效益的驗證進度——下限為樂觀情境（節電效益全數兌現），上限為保守情境（僅計入冷媒逸散減量）。
     </p>
   </div><!-- /.outlook-section -->
@@ -661,5 +661,9 @@
   </div>
 
 </div><!-- /.card -->
+<script type="module">
+  import { renderSBTIMetrics } from './assets/sbti-metrics.js';
+  renderSBTIMetrics();
+</script>
 </body>
 </html>

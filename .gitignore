@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# Local browser-test artifacts
+.playwright-cli/
