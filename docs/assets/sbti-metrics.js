@@ -5,7 +5,7 @@ export const SBTI_2040 = Object.freeze({
   yearsTo2040: 16,
   solarFullDeployment: 2635,
   completedChillers: 230.9,
-  pendingChillerScope1: 905.8,
+  pendingChillerScope1: 978.3,
   pendingChillerScope2: 3128.0,
   pendingChillerCapacityRt: 6340,
   pendingChillerItems: 21,
