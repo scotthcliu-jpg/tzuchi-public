@@ -176,7 +176,7 @@
 <!-- 返回儀表板 -->
 <div class="back-nav">
   <a class="back-btn" href="dashboard.html">← 執行進度儀表板</a>
-  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.11.02</span>
+  <span class="back-nav-label">慈濟 SBTi 淨零減碳 · 冰水主機汰換計畫　·　更新：2026.11.06</span>
 </div>
 
 <!-- ╔══ 封面 ══╗ -->
@@ -187,7 +187,7 @@
   <div class="cover-stats">
     <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-capacity"></div><div class="cstat-lbl">待評估總冷凍噸數 (RT)</div></div>
     <div class="cstat"><div class="cstat-num">21</div><div class="cstat-lbl">項待汰換主機（44台）</div></div>
-    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-scope1"></div><div class="cstat-lbl">Scope 1 年減碳潛力 (tCO₂e)</div></div>
+    <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-scope1"></div><div class="cstat-lbl">Scope 1 年減碳上限（盤查口徑，tCO₂e）</div></div>
     <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-scope2"></div><div class="cstat-lbl">Scope 2 理論上限 (tCO₂e)</div></div>
     <div class="cstat"><div class="cstat-num" data-sbti="input.pending-chiller-total"></div><div class="cstat-lbl">Scope 1+2 合計潛力 (tCO₂e/年)</div></div>
   </div>
@@ -207,7 +207,7 @@
   <div class="kpi-grid">
     <div class="kpi blue">
       <div class="kpi-num" data-sbti="input.pending-chiller-scope1"></div>
-      <div class="kpi-lbl">Scope 1 冷媒逸散<br>年減碳潛力（tCO₂e）</div>
+      <div class="kpi-lbl">Scope 1 冷媒逸散<br>年減碳上限（盤查口徑，tCO₂e）</div>
     </div>
     <div class="kpi green">
       <div class="kpi-num" data-sbti="input.pending-chiller-scope2"></div>
@@ -215,13 +215,16 @@
     </div>
     <div class="kpi gold">
       <div class="kpi-num" data-sbti="input.pending-chiller-total"></div>
-      <div class="kpi-lbl">Scope 1+2 合計<br>排序用理論潛力（tCO₂e）</div>
+      <div class="kpi-lbl">Scope 1+2 合計<br>排序用潛力（tCO₂e）</div>
     </div>
     <div class="kpi red">
       <div class="kpi-num">32 台</div>
       <div class="kpi-lbl">R-22 高 GWP 主機<br>（GWP=1,960，4,290RT，需優先汰換）</div>
     </div>
   </div>
+  <p style="font-size:12px;color:#744210;background:#FFF8E1;padding:10px 14px;border-radius:8px;border-left:3px solid var(--gold);margin-bottom:10px;">
+    ⚠️ <strong>Scope 1 口徑（2026-11-06）</strong>：上方 Scope 1 年減碳以各據點 2025 年溫室氣體盤查的冷媒逸散量為上限（R-22 約 588＋R-134a 約 281，取整 870）。下方排序表各列與冷媒結構卡為 1 kg/RT 理論估算（合計 978.3），部分據點高於該據點實際盤查量，<strong>僅供跨設施相對排序，不計入減碳路徑</strong>；實際以盤查結果為準。
+  </p>
   <p style="font-size:12px;color:var(--gray);background:var(--gray100);padding:10px 14px;border-radius:8px;">
     ⚡ 2025 年 Scope 1+2 基準：9,175 tCO₂e｜2027 年太陽能全到位後預估 <strong>≈6,309 tCO₂e</strong>（已超額達成 2030 目標 6,863 tCO₂e，2026-06-23電力係數更正）。<br>
     ⚠️ 上方 Scope 2「理論上限」係以 RT × 年冷房時數估算，<strong>僅供 21 項主機跨設施相對排序比較</strong>，不可直接加總計入正式減碳路徑；正式路徑仍以 2027 預估 ≈6,309 tCO₂e 為準（2026-07-22重算：花蓮靜思堂CH-1備援機決議與大安聯絡處已汰換完成，皆已移出本表，KPI數字同步更新）。
