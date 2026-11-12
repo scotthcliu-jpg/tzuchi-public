@@ -596,12 +596,12 @@
             <td>太陽能 41 案場全到位＋已完成 3 所冰機汰換，工程估算值</td>
           </tr>
           <tr>
-            <td rowspan="2"><strong>2040</strong></td>
-            <td rowspan="2" data-sbti="scenario.target-2040"></td>
+            <td rowspan="3"><strong>2040</strong></td>
+            <td rowspan="3" data-sbti="scenario.target-2040"></td>
             <td><strong style="color:var(--tzu-green);">可能提前至 2030 前</strong></td>
             <td data-sbti="scenario.optimistic-result"></td>
             <td style="color:var(--tzu-green);" data-sbti="scenario.optimistic-surplus"></td>
-            <td>🟢 樂觀：23 會所冰機全數汰換，Scope1+2 效益全採計</td>
+            <td>🟢 樂觀：23 會所冰機全數汰換，Scope1+2 效益全採計（Scope2 為理論上限）</td>
           </tr>
           <tr>
             <td><strong style="color:var(--tzu-red);">2040 尚未達標</strong></td>
@@ -609,12 +609,18 @@
             <td style="color:var(--tzu-red);" data-sbti="scenario.conservative-gap"></td>
             <td>🟡 保守：冰機僅採計 Scope1（冷媒逸散），Scope2 節電效益未驗證不計入</td>
           </tr>
+          <tr>
+            <td><strong style="color:var(--tzu-red);">2040 尚未達標</strong></td>
+            <td data-sbti="scenario.measured-result"></td>
+            <td style="color:var(--tzu-red);" data-sbti="scenario.measured-gap"></td>
+            <td>🔵 實測實現率：冰機 Scope2 依已完成案例實測比例計（花蓮靜思堂實測約為理論上限的 21%～26%）</td>
+          </tr>
         </tbody>
       </table>
 
       <div class="summary-box" style="margin-top:16px;">
         <p><strong>2040 目標換算</strong>：基準年(9,175) × (1 − 4.2%/年 × 16年) = 9,175 × 32.8% = <strong data-sbti="scenario.target-2040"></strong> tCO₂e（與 2030 目標同一公式，SBTi 1.5°C 絕對削減法線性軌跡）</p>
-        <p><strong>結論</strong>：2040 年目標「有條件可達成」。冰機 Scope 2 節電效益若如理論估算兌現，可大幅超額並提前至 2030 年前達成；若僅冷媒逸散減量兌現，仍有約 <span data-sbti="scenario.conservative-gap-value"></span> tCO₂e 缺口（2026-11-06 冰機 Scope1 改以各據點 2025 盤查上限計），需靠 LED 汰換、公務車電動化等待量化行動補足。</p>
+        <p><strong>結論</strong>：2040 年目標「有條件可達成」。冰機 Scope 2 節電效益若如理論估算兌現，可大幅超額並提前至 2030 年前達成；依已完成案例的實測實現率（花蓮靜思堂約 21%～26%）推估，仍有約 <span data-sbti="scenario.measured-gap-value"></span> tCO₂e 缺口；若僅冷媒逸散減量兌現，仍有約 <span data-sbti="scenario.conservative-gap-value"></span> tCO₂e 缺口（2026-11-06 冰機 Scope1 改以各據點 2025 盤查上限計），需靠 LED 汰換、公務車電動化等待量化行動補足。</p>
       </div>
     </div>
 
