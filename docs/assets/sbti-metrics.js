@@ -4,8 +4,8 @@ export const SBTI_2040 = Object.freeze({
   annualReductionRate: 0.042,
   yearsTo2040: 16,
   solarFullDeployment: 2635,
-  completedChillers: 230.9,
-  // 2026-11-06 起改以各據點 2025 盤查冷媒逸散上限計（R-22 約 588＋R-134a 約 281，取整 870）；排序頁各列仍為 1 kg/RT 理論估算（合計 978.3），僅供排序
+  completedChillers: 231.1,
+  // 2026-11-06 起改以各據點 2025 盤查冷媒逸散上限計（R-22 約 588＋R-134a 約 281，取整 870）；排序頁各列仍為 1 kg/RT 理論估算（合計 980.5），僅供排序
   pendingChillerScope1: 870,
   pendingChillerScope2: 3128.0,
   // 2026-11-13 新增：Scope2 理論上限的實測實現率。花蓮 2026 年 5–10 月實測 128.8（下限）～全年上緣估約 160 tCO₂e，除以同一排序公式值（除役 1,250 RT × 0.49296 ＝ 616.2）＝約 21%～26%；桃園主機對主機實測 2.8 ÷（160 RT × 0.49296 ＝ 78.9）＝約 4%。花蓮升定版或有第三場實測時重算
